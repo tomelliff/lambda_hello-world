@@ -8,6 +8,6 @@ def lambda_handler(event, context):
     event_object = event['object']
   except KeyError:
     raise KeyError("Event should contain a key called 'object'")
-  if event_object != "world":
+  if event_object.lower() != "world":
     raise ValueError("This is a 'Hello world!' function, not 'Hello {0}!".format(event_object))
   return "Hello {0}!".format(event_object)
