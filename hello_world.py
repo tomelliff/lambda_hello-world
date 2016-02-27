@@ -4,3 +4,4 @@ import json
 
 def lambda_handler(event, context):
   print("Received event: {0}".format(json.dumps(event, indent=2)))
+  return "Hello {0}!".format(event['object'])
