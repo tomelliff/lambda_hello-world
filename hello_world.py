@@ -1,9 +1,14 @@
 from __future__ import print_function
 
 import json
+import logging
 
 def lambda_handler(event, context):
-  print("Received event: {0}".format(json.dumps(event, indent=2)))
+
+  logging.getLogger().setLevel(logging.DEBUG)
+
+  logging.debug("Received event: {0}".format(json.dumps(event, indent=2)))
+
   try:
     event_object = event['object']
   except KeyError:
